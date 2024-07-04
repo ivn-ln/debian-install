@@ -89,6 +89,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # System configuration
 sudo systemctl enable acpid
 sudo localectl set-x11-keymap us,ru pc105 , grp:win_space_toggle
+cd ~/Downloads
+git clone https://github.com/ivn-ln/debian-install.git
 sudo cp ~/Downloads/debian-install/interfaces /etc/network/
 sudo cp ~/Downloads/debian-install/logind.conf  /etc/systemd/
 sudo cp ~/Downloads/debian-install/lightdm.conf /etc/lightdm/
