@@ -110,4 +110,6 @@ echo "Things to do after installation:
 Reboot
 Login into vscode and sync
 Login into floorp and sync
-Install android studio via android-studio command"
+Install android studio via android-studio command
+Add git credentials and store them with 
+git config --global credential.helper store"
