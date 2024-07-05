@@ -1,6 +1,5 @@
 #!/bin/bash
 # Initial setup
-su illarn
 mkdir /home/illarn/Downloads
 mkdir /home/illarn/Desktop
 mkdir /home/illarn/Godot
@@ -13,6 +12,7 @@ sudo apt install nala -y
 sudo nala update
 sudo nala upgrade
 sudo nala install zip unzip picom rofi vim awesome lightdm network-manager blueman flameshot polybar nitrogen qt5ct x11-utils zsh pavucontrol neofetch lxappearance kitty git fzf bluez-tools thunar thunar-archive-plugin mousepad libnotify-bin flatpak mpv sox arandr lxsession-logout btop xinput papirus-icon-theme qbittorrent mirage libgdk-pixbuf2.0-0 acpid -y
+cd /home/illarn/Downloads
 wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 sudo dpkg -i download?build=stable&os=linux-deb-x64
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
@@ -74,12 +74,13 @@ cp VarelaRound-Regular.ttf /home/illarn/.fonts
 cp /home/illarn/Downloads/dotfiles/Audio /home/illarn -a
 wget https://github.com/catppuccin/gtk/releases/download/v0.7.3/Catppuccin-Mocha-Standard-Teal-Dark.zip
 unzip Catppuccin-Mocha-Standard-Teal-Dark.zip -d CatppuccinMochaTeal
-
-cp /home/illarn/Downloads/CatppuccinMochaTeal/Catppuccin-Mocha-Standard-Teal-Dark /home/illarn/.local/share/themes -a
+mkdir /home/illarn/.local/share/themes/cat-mocha-dark/
+cp /home/illarn/Downloads/CatppuccinMochaTeal/Catppuccin-Mocha-Standard-Teal-Dark /home/illarn/.local/share/themes/cat-mocha-dark/ -a
 git clone https://github.com/catppuccin/papirus-folders.git
 cd papirus-folders
-sudo cp -r src/* /usr/share/icons/Papirus 
-./papirus-folders -C cat-mocha-blue --theme Papirus-Dark
+sudo cp -r src/* /usr/share/icons/Papirus
+curl -LO https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/papirus-folders && chmod +x ./papirus-folders
+papirus-folders -C cat-mocha-blue --theme Papirus-Dark
 wget https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-dark-cursors.zip
 unzip catppuccin-mocha-dark-cursors.zip -d CatppuccinMochaDark
 cp /home/illarn/Downloads/CatppuccinMochaDark /home/illarn/.local/share/icons/ -a
