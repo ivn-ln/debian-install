@@ -4,6 +4,17 @@ mkdir ~/Desktop
 mkdir ~/Godot
 mkdir ~/Projects
 mkdir ~/Assets
+
+
+# Apps installation
+sudo apt install nala
+sudo nala update
+sudo nala upgrade
+sudo nala install zip unzip picom rofi vim awesome lightdm network-manager blueman flameshot polybar nitrogen qt5ct x11-utils zsh pavucontrol neofetch lxappearance kitty git fzf bluez-tools thunar thunar-archive-plugin mousepad libnotify-bin flatpak mpv sox arandr lxsession-logout btop xinput papirus-icon-theme qbittorrent mirage libgdk-pixbuf2.0-0 acpid -y
+wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+sudo dpkg -i download?build=stable&os=linux-deb-x64
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
 cd ~/Godot
 wget https://github.com/godotengine/godot/releases/download/4.2.2-stable/Godot_v4.2.2-stable_linux.x86_64.zip
 unzip Godot_v4.2.2-stable_linux.x86_64.zip
@@ -20,17 +31,6 @@ mv ~/Downloads/android-studio ~
 wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
 sudo dpkg -i jdk-17_linux-x64_bin.deb
 
-# Apps installation
-sudo apt install nala
-sudo nala update
-sudo nala upgrade
-sudo nala install zip unzip picom rofi vim awesome lightdm network-manager blueman flameshot polybar nitrogen qt5ct x11-utils zsh pavucontrol neofetch lxappearance kitty git fzf bluez-tools thunar thunar-archive-plugin mousepad libnotify-bin flatpak mpv sox arandr lxsession-logout btop xinput papirus-icon-theme qbittorrent mirage libgdk-pixbuf2.0-0 acpid -y
-wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-sudo dpkg -i download\?build=stable\&os=linux-deb-x64
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
-sudo auto-cpufreq –install
-
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -42,7 +42,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub org.telegram.desktop com.usebottles.bottles one.ablaze.floorp com.github.tchx84.Flatseal com.valvesoftware.Steam org.onlyoffice.desktopeditors com.github.calo001.luna org.kde.krita -y
 
 # Installing configs and themes
-clone https://github.com/ivn-ln/dotfiles.git
+cd ~/Downloads
+git clone https://github.com/ivn-ln/dotfiles.git
 cp ~/Downloads/dotfiles/.config/. ~/.config/ -a
 cp ~/Downloads/dotfiles/.zshrc ~/
 mkdir ~/.local/share/rofi
@@ -79,21 +80,15 @@ sudo cp -r src/* /usr/share/icons/Papirus
 wget https://github.com/catppuccin/cursors/releases/download/v0.3.1/catppuccin-mocha-dark-cursors.zip
 unzip catppuccin-mocha-dark-cursors.zip -d CatppuccinMochaDark
 cp ~/Downloads/CatppuccinMochaDark ~/.local/share/icons/ -a
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # System configuration
 sudo systemctl enable acpid
 sudo localectl set-x11-keymap us,ru pc105 , grp:win_space_toggle
 cd ~/Downloads
 git clone https://github.com/ivn-ln/debian-install.git
-sudo cp ~/Downloads/debian-install/interfaces /etc/network/
-sudo cp ~/Downloads/debian-install/logind.conf  /etc/systemd/
-sudo cp ~/Downloads/debian-install/lightdm.conf /etc/lightdm/
+sudo cp ~/Downloads/debian-install/interfaces /etc/network/ -f
+sudo cp ~/Downloads/debian-install/logind.conf  /etc/systemd/ -f
+sudo cp ~/Downloads/debian-install/lightdm.conf /etc/lightdm/ -f
 sudo mkdir /etc/acpi/
 sudo mkdir /etc/acpi/events/
 cd /etc/acpi/events/
@@ -103,6 +98,15 @@ echo "event=button/lid.*
 action=/etc/acpi/laptop-lid.sh" >> laptop-lid
 sudo touch laptop-lid.sh
 sudo cp ~/Downloads/debian-install/laptop-lid.sh /etc/acpi/
+sudo auto-cpufreq –install
+
+# Ohmyzsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Cleanup
 rm -r ~/Downloads/.
