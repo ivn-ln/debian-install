@@ -7,7 +7,7 @@ mkdir ~/Assets
 
 
 # Apps installation
-sudo apt install nala
+sudo apt install nala -y
 sudo nala update
 sudo nala upgrade
 sudo nala install zip unzip picom rofi vim awesome lightdm network-manager blueman flameshot polybar nitrogen qt5ct x11-utils zsh pavucontrol neofetch lxappearance kitty git fzf bluez-tools thunar thunar-archive-plugin mousepad libnotify-bin flatpak mpv sox arandr lxsession-logout btop xinput papirus-icon-theme qbittorrent mirage libgdk-pixbuf2.0-0 acpid -y
