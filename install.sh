@@ -1,5 +1,6 @@
 #!/bin/bash
 # Initial setup
+su illarn
 mkdir /home/illarn/Downloads
 mkdir /home/illarn/Desktop
 mkdir /home/illarn/Godot
@@ -73,6 +74,7 @@ cp VarelaRound-Regular.ttf /home/illarn/.fonts
 cp /home/illarn/Downloads/dotfiles/Audio /home/illarn -a
 wget https://github.com/catppuccin/gtk/releases/download/v0.7.3/Catppuccin-Mocha-Standard-Teal-Dark.zip
 unzip Catppuccin-Mocha-Standard-Teal-Dark.zip -d CatppuccinMochaTeal
+
 cp /home/illarn/Downloads/CatppuccinMochaTeal/Catppuccin-Mocha-Standard-Teal-Dark /home/illarn/.local/share/themes -a
 git clone https://github.com/catppuccin/papirus-folders.git
 cd papirus-folders
