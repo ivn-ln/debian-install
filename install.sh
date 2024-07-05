@@ -110,7 +110,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/i
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/illarn/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Cleanup
-rm -r /home/illarn/Downloads/.
+rm -r /home/illarn/Downloads/*
 echo "Things to do after installation:
 Reboot
 Login into vscode and sync
